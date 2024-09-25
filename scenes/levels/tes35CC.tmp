@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cx6847vm4yd30"]
+
+[ext_resource type="Script" path="res://scripts/entities/character/character_controller.gd" id="1_v5kk2"]
+[ext_resource type="PackedScene" uid="uid://cux8udym3no7b" path="res://scenes/entities/character/character.tscn" id="2_fa7qm"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CharacterController" type="Node" parent="."]
+script = ExtResource("1_v5kk2")
+
+[node name="Character" parent="CharacterController" instance=ExtResource("2_fa7qm")]
+
+[node name="Camera2D" type="Camera2D" parent="CharacterController"]
+zoom = Vector2(3, 3)

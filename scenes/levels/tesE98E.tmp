@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=3 uid="uid://cx6847vm4yd30"]
+
+[ext_resource type="Script" path="res://scripts/entities/character/character.gd" id="1_m0imj"]
+[ext_resource type="Script" path="res://scripts/entities/character/character_controller.gd" id="1_v5kk2"]
+[ext_resource type="Script" path="res://scripts/entities/character/state_machine.gd" id="2_c1vs5"]
+[ext_resource type="Script" path="res://scripts/entities/character/states/moving_state.gd" id="3_qgdqc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cs41l"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_8cc8r"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3, 3)
+
+[node name="CharacterController" type="Node" parent="."]
+script = ExtResource("1_v5kk2")
+
+[node name="Character" type="CharacterBody2D" parent="CharacterController"]
+motion_mode = 1
+script = ExtResource("1_m0imj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterController/Character"]
+shape = SubResource("RectangleShape2D_cs41l")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterController/Character"]
+scale = Vector2(20, 20)
+texture = SubResource("PlaceholderTexture2D_8cc8r")
+
+[node name="StateMachine" type="Node" parent="CharacterController/Character"]
+script = ExtResource("2_c1vs5")
+
+[node name="MovingState" type="Node" parent="CharacterController/Character/StateMachine"]
+script = ExtResource("3_qgdqc")

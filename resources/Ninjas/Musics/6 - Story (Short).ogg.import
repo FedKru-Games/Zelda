@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://d3gav0x2fxlfj"
+path="res://.godot/imported/6 - Story (Short).ogg-efe4438a981db5b155d8e5a196f3bafc.oggvorbisstr"
+
+[deps]
+
+source_file="res://resources/Ninjas/Musics/6 - Story (Short).ogg"
+dest_files=["res://.godot/imported/6 - Story (Short).ogg-efe4438a981db5b155d8e5a196f3bafc.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
