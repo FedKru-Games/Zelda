@@ -11,3 +11,4 @@ func on_physics_process(delta: float):
 	character.walk()
 	character.update_direction()
 	character.move_and_slide()
+	character.attack()

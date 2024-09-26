@@ -7,17 +7,19 @@ class_name Character extends CharacterBody2D
 
 @onready var _state_machine: CharacterStateMachine = get_node("StateMachine")
 @onready var _animation_player: AnimationPlayer = get_node("AnimationPlayer")
-@onready var _character_sprite: Sprite2D = get_node("Sprite2D")
+@onready var _character_sprite: Sprite2D = get_node("CharacterSprite")
+@onready var _holster: ItemHolster = get_node("ItemHolster")
+@onready var _attacker: Attacker = get_node("Attacker")
 
-var anim = AnimatedSprite2D.new()
-
-var health = HealthSystem.new(max_health)
+var health = Health.new(max_health)
+var inventory = Inventory.new(20)
 
 var direction = Vector2(0, 1)
 
 var input_x = 0.0
 var input_y = 0.0
 var input_run = false
+var input_attack = false
 
 func animate(animation_name: String):
 	_animation_player.play(animation_name)
@@ -31,7 +33,6 @@ func walk():
 func run():
 	velocity = Vector2(input_x, input_y).normalized() * run_speed
 	
-	
 func get_direction_name() -> String:
 	if direction.y < 0:
 		return "up"
@@ -41,12 +42,15 @@ func get_direction_name() -> String:
 		return "right"
 	return "left"
 
+func attack():
+	if input_attack and _holster.item is WeaponData:
+		_attacker.attack(_holster.item, direction.normalized())
 
 func _ready():
-	anim.sprite_frames
+	_holster.inventory = inventory
 	change_skin(skin_name)
+	inventory.add_item('battle_axe', 1)
 	_state_machine.init(self)
-
 
 func _normalize(a: float) -> float:
 	return sign(a) * ceil(abs(a))

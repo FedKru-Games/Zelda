@@ -1,4 +1,4 @@
-class_name HealthSystem extends Resource
+class_name Health extends Resource
 
 var max_health: int = 0
 
