@@ -6,8 +6,12 @@
 
 [resource]
 script = ExtResource("2_kejre")
-attack_cooldown = 1.0
 damage = 45
+attack_cooldown = 0.5
+swing_duration = 0.1
+attack_duration = 0.3
+attack_width = 6.0
+attack_height = 30.0
 id = "battle_axe"
 name = "Battle Axe"
 texture = ExtResource("3_fhgv7")

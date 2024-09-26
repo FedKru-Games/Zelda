@@ -41,10 +41,12 @@ func get_direction_name() -> String:
 	if direction.x > 0:
 		return "right"
 	return "left"
+	
+func get_item_in_holster() -> ItemData:
+	return _holster.item
 
-func attack():
-	if input_attack and _holster.item is WeaponData:
-		_attacker.attack(_holster.item, direction.normalized())
+func attack(weapon: WeaponData):
+	_attacker.attack(weapon, direction.normalized())
 
 func _ready():
 	_holster.inventory = inventory

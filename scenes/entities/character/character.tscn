@@ -1,9 +1,10 @@
-[gd_scene load_steps=29 format=3 uid="uid://cux8udym3no7b"]
+[gd_scene load_steps=38 format=3 uid="uid://cux8udym3no7b"]
 
 [ext_resource type="Script" path="res://scripts/entities/character/character.gd" id="1_d8ed4"]
 [ext_resource type="Script" path="res://scripts/entities/character/state_machine.gd" id="2_rnq7s"]
 [ext_resource type="Script" path="res://scripts/entities/character/states/moving.gd" id="3_pm7c7"]
 [ext_resource type="Script" path="res://scripts/entities/character/states/running.gd" id="4_x5os2"]
+[ext_resource type="Script" path="res://scripts/entities/character/states/melee.gd" id="5_3eqw2"]
 [ext_resource type="Script" path="res://scripts/entities/character/states/idle.gd" id="5_4wgy1"]
 [ext_resource type="Script" path="res://scripts/combat/hurtbox.gd" id="6_hsbvy"]
 [ext_resource type="Script" path="res://scripts/items/item_holster.gd" id="7_7eec5"]
@@ -63,6 +64,18 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CharacterSprite:frame_coords")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(2, 4)]
 }
 
 [sub_resource type="Animation" id="Animation_18s7a"]
@@ -685,9 +698,138 @@ tracks/3/keys = {
 "values": [Vector2(5, 0), Vector2(5, -3), Vector2(4, 1), Vector2(4, 3)]
 }
 
+[sub_resource type="Animation" id="Animation_1mbx5"]
+resource_name = "swing_right"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [19]
+}
+
+[sub_resource type="Animation" id="Animation_3w81j"]
+resource_name = "swing_left"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [18]
+}
+
+[sub_resource type="Animation" id="Animation_o817y"]
+resource_name = "swing_up"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [17]
+}
+
+[sub_resource type="Animation" id="Animation_qskj3"]
+resource_name = "swing_down"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [16]
+}
+
+[sub_resource type="Animation" id="Animation_83tgg"]
+resource_name = "attack_left"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterSprite:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(2, 4)]
+}
+
+[sub_resource type="Animation" id="Animation_n1148"]
+resource_name = "attack_right"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [19]
+}
+
+[sub_resource type="Animation" id="Animation_mdhto"]
+resource_name = "attack_up"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [21]
+}
+
+[sub_resource type="Animation" id="Animation_yk31x"]
+resource_name = "attack_down"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [20]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wfr0t"]
 _data = {
 "RESET": SubResource("Animation_0fh77"),
+"attack_down": SubResource("Animation_yk31x"),
+"attack_left": SubResource("Animation_83tgg"),
+"attack_right": SubResource("Animation_n1148"),
+"attack_up": SubResource("Animation_mdhto"),
 "idle_down": SubResource("Animation_18s7a"),
 "idle_left": SubResource("Animation_dyx3e"),
 "idle_right": SubResource("Animation_dns2x"),
@@ -696,6 +838,10 @@ _data = {
 "run_left": SubResource("Animation_go3t5"),
 "run_right": SubResource("Animation_kjmsd"),
 "run_up": SubResource("Animation_eh8hw"),
+"swing_down": SubResource("Animation_qskj3"),
+"swing_left": SubResource("Animation_3w81j"),
+"swing_right": SubResource("Animation_1mbx5"),
+"swing_up": SubResource("Animation_o817y"),
 "walk_down": SubResource("Animation_ni8vy"),
 "walk_left": SubResource("Animation_675h7"),
 "walk_right": SubResource("Animation_t6waa"),
@@ -731,6 +877,7 @@ texture_filter = 1
 texture = SubResource("CompressedTexture2D_i2qvn")
 hframes = 4
 vframes = 7
+frame = 18
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource("2_rnq7s")
@@ -742,6 +889,7 @@ script = ExtResource("3_pm7c7")
 script = ExtResource("4_x5os2")
 
 [node name="Melee" type="Node" parent="StateMachine"]
+script = ExtResource("5_3eqw2")
 
 [node name="Idle" type="Node" parent="StateMachine"]
 script = ExtResource("5_4wgy1")
@@ -749,7 +897,7 @@ script = ExtResource("5_4wgy1")
 [node name="Hurtbox" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 7
-monitoring = false
+monitorable = false
 script = ExtResource("6_hsbvy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
@@ -767,6 +915,9 @@ texture = ExtResource("7_owaqf")
 script = ExtResource("9_qvpju")
 
 [node name="HitBox" type="Area2D" parent="Attacker"]
+collision_layer = 7
+collision_mask = 0
+monitoring = false
 script = ExtResource("10_jfn8f")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Attacker/HitBox"]

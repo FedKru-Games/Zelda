@@ -7,7 +7,8 @@ var character: Character
 @onready var states = {
 	'idle': get_node('Idle'),
 	'moving': get_node('Moving'),
-	'running': get_node("Running")
+	'running': get_node("Running"),
+	'melee': get_node("Melee")
 }
 
 func init(character: Character):

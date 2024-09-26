@@ -6,8 +6,12 @@
 
 [resource]
 script = ExtResource("2_7myri")
-attack_cooldown = 0.3
 damage = 25
+attack_cooldown = 0.3
+swing_duration = 0.1
+attack_duration = 0.2
+attack_width = 14.0
+attack_height = 14.0
 id = "axe"
 name = "Axe"
 texture = ExtResource("3_o02if")
