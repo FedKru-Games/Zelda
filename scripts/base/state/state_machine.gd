@@ -4,6 +4,9 @@ var _state: State = null
 
 var _state_row: Array[State] = []
 
+func get_state() -> State:
+	return _state
+
 func _process(delta):
 	if _state != null:
 		_state.on_process(delta)

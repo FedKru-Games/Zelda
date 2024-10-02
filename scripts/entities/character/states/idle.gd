@@ -9,6 +9,5 @@ func on_physics_process(delta: float):
 		return
 	character.animate("idle_" + character.get_direction_name())
 	character.walk()
-	character.update_direction()
 	character.move_and_slide()
 	melee()

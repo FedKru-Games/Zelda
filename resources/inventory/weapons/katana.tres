@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="WeaponData" load_steps=4 format=3 uid="uid://bnk5fs4q07dum"]
+
+[ext_resource type="Texture2D" uid="uid://c8pfmbovgcfao" path="res://resources/Ninjas/Items/Weapons/Katana/SpriteInHand.png" id="1_cm748"]
+[ext_resource type="Script" path="res://scripts/items/data/weapon/weapon_data.gd" id="2_6so7c"]
+[ext_resource type="Texture2D" uid="uid://dm606c31bf7un" path="res://resources/Ninjas/Items/Weapons/Katana/Sprite.png" id="3_3tb0y"]
+
+[resource]
+script = ExtResource("2_6so7c")
+damage = 40
+attack_cooldown = 1.0
+swing_duration = 0.05
+attack_duration = 0.5
+attack_width = 12.0
+attack_height = 24.0
+id = "katana"
+name = "Katana"
+texture = ExtResource("3_3tb0y")
+holster_texture = ExtResource("1_cm748")
+max_in_stack = 1

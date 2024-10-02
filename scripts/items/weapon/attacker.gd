@@ -21,6 +21,7 @@ func attack(weapon: WeaponData, direction: Vector2):
 	hitbox.set_shape(shape)
 	
 	rotation = atan2(direction.y, direction.x) - PI / 2
+	position = direction * weapon.attack_height / 2
 	
 	_ticker.set_ticker(weapon.attack_duration)
 

@@ -1,26 +1,36 @@
 class_name Health extends Resource
 
-var max_health: int = 0
 
 signal health_changed(health: int, is_dead: bool)
+signal max_health_changed(max_health: int)
 
-var _health: int = 0
-var _is_dead = false
+var max_health: int = 0 : set = _change_max_health
+var health: int = 0 : set = _change_health
+
+var is_dead = false
 
 func _init(max_health: int):
 	max_health = max_health
-	_health = max_health
+	health = max_health
+
+func _change_max_health(new_health: int):
+	max_health = new_health
+	if health > max_health:
+		health = max_health
+	max_health_changed.emit(max_health)
 
 func _change_health(new_health: int):
 	if new_health <= 0:
-		_health = 0
-		_is_dead = true
-	if new_health > max_health:
-		_health = max_health
-	health_changed.emit(_health, _is_dead)
+		health = 0
+		is_dead = true
+	elif new_health > max_health:
+		health = max_health
+	else:
+		health = new_health
+	health_changed.emit(health, is_dead)
 
 func take_damage(damage: int):
-	_change_health(_health - damage)
+	_change_health(health - damage)
 	
 func heal(heal: int):
 	_change_health(heal)

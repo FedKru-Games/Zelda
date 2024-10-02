@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="HealingItemData" load_steps=3 format=3 uid="uid://1pqqwxpyc5rc"]
+
+[ext_resource type="Script" path="res://scripts/items/data/consumable/healing_item_data.gd" id="1_0rhkl"]
+[ext_resource type="Texture2D" uid="uid://c8h526ulnqf72" path="res://resources/Ninjas/Items/Potion/LifePot.png" id="1_5kgr2"]
+
+[resource]
+script = ExtResource("1_0rhkl")
+health = 50
+id = "health_potion"
+name = "Health Potion"
+texture = ExtResource("1_5kgr2")
+holster_texture = ExtResource("1_5kgr2")
+max_in_stack = 1

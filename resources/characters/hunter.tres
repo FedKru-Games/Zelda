@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CharacterData" load_steps=3 format=3 uid="uid://d2nn5r1dt564g"]
+
+[ext_resource type="Script" path="res://scripts/entities/character/character_data.gd" id="1_j6hhq"]
+[ext_resource type="Texture2D" uid="uid://bb7qi58i4x5pw" path="res://resources/Ninjas/Actor/Characters/Knight/SpriteSheet.png" id="2_p40v2"]
+
+[resource]
+script = ExtResource("1_j6hhq")
+run_speed = 60.0
+walk_speed = 30.0
+max_health = 100
+skin = ExtResource("2_p40v2")

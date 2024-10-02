@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Fraction" load_steps=2 format=3 uid="uid://dr4lp1ylnu6qt"]
+
+[ext_resource type="Script" path="res://scripts/combat/fraction/fraction.gd" id="1_cvkq3"]
+
+[resource]
+script = ExtResource("1_cvkq3")
+id = "neutral"
+name = "Neutral"

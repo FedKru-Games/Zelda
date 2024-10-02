@@ -7,5 +7,7 @@ func _ready():
 
 
 func _on_area_entered(hitbox: HitBox) -> void:
-	if  hitbox != null and hitbox is HitBox and hitbox.owner != owner:
-		owner.health.take_damage(hitbox.damage)
+	if  hitbox != null and hitbox is HitBox \
+	and hitbox.owner != owner and not hitbox.is_collided(self):
+		damage_taken.emit(hitbox.damage)
+		hitbox.register_collision(self)

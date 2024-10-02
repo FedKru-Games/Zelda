@@ -1,18 +1,20 @@
 class_name Character extends CharacterBody2D
 
-@export var walk_speed = 30.0
-@export var run_speed = 60.0
-@export var max_health = 100
-@export var skin_name = "Boy"
+@export var data: CharacterData
+@export var fraction_id: String = 'good'
+
+@onready var health = Health.new(data.max_health)
+@onready var inventory = Inventory.new(5)
+
+@onready var character_finder = get_node("CharacterFinder")
+@onready var attacker: Attacker = get_node("Attacker")
+@onready var holster: ItemHolster = get_node("ItemHolster")
+@onready var hurtbox: HurtBox = get_node("Hurtbox")
 
 @onready var _state_machine: CharacterStateMachine = get_node("StateMachine")
 @onready var _animation_player: AnimationPlayer = get_node("AnimationPlayer")
 @onready var _character_sprite: Sprite2D = get_node("CharacterSprite")
-@onready var _holster: ItemHolster = get_node("ItemHolster")
-@onready var _attacker: Attacker = get_node("Attacker")
-
-var health = Health.new(max_health)
-var inventory = Inventory.new(20)
+@onready var _health_bar: TextureProgressBar = get_node("HealthBar")
 
 var direction = Vector2(0, 1)
 
@@ -28,41 +30,38 @@ func has_movement_intention() -> bool:
 	return input_x != 0 || input_y != 0
 	
 func walk():
-	velocity = Vector2(input_x, input_y).normalized() * walk_speed
+	velocity = Vector2(input_x, input_y).normalized() * data.walk_speed
 	
 func run():
-	velocity = Vector2(input_x, input_y).normalized() * run_speed
+	velocity = Vector2(input_x, input_y).normalized() * data.run_speed
 	
 func get_direction_name() -> String:
-	if direction.y < 0:
+	if direction.y < -0.5:
 		return "up"
-	if direction.y > 0:	
+	if direction.y > 0.5:	
 		return "down"
 	if direction.x > 0:
 		return "right"
-	return "left"
-	
-func get_item_in_holster() -> ItemData:
-	return _holster.item
-
-func attack(weapon: WeaponData):
-	_attacker.attack(weapon, direction.normalized())
-
-func _ready():
-	_holster.inventory = inventory
-	change_skin(skin_name)
-	inventory.add_item('battle_axe', 1)
-	_state_machine.init(self)
-
-func _normalize(a: float) -> float:
-	return sign(a) * ceil(abs(a))
-
-func change_skin(name: String):
-	_character_sprite.texture = load('res://resources/Ninjas/Actor/Characters/' + name + '/SpriteSheet.png')
+	if direction.x < 0:
+		return "left"
+	return "down"
 
 func update_direction():
-	var x_dir = _normalize(input_x)
-	var y_dir = _normalize(input_y)
+	if input_x != 0 or input_y != 0:
+		direction = Vector2(input_x, input_y).normalized()
+
+func _ready():
+	_character_sprite.texture = data.skin
+	health.max_health = data.max_health
+	health.health = data.max_health
 	
-	if x_dir != 0.0 || y_dir != 0.0:
-		direction = Vector2(x_dir, y_dir)
+	holster.init(inventory)
+	character_finder.init(self)
+	
+	_health_bar.init(health)
+	_state_machine.init(self)
+	
+	inventory.add_item('battle_axe', 1)
+	inventory.add_item('health_potion', 5)
+	inventory.add_item('katana', 1)
+	inventory.add_item('axe', 1)

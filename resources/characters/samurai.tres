@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CharacterData" load_steps=3 format=3 uid="uid://c7qvehte3qwal"]
+
+[ext_resource type="Script" path="res://scripts/entities/character/character_data.gd" id="1_flk40"]
+[ext_resource type="Texture2D" uid="uid://b2iploj02h70k" path="res://resources/Ninjas/Actor/Characters/Samurai/SpriteSheet.png" id="2_m67lw"]
+
+[resource]
+script = ExtResource("1_flk40")
+run_speed = 60.0
+walk_speed = 30.0
+max_health = 100
+skin = ExtResource("2_m67lw")

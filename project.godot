@@ -18,6 +18,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 ItemDatabase="*res://scripts/items/data/item_database.gd"
+FractionDatabase="*res://scripts/combat/fraction/fraction_database.gd"
+FractionRelationDatabase="*res://scripts/combat/fraction/fraction_relation_database.gd"
 
 [dotnet]
 

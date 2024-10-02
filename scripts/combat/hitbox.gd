@@ -6,11 +6,22 @@ var damage: int = 0
  
 var owner_entity: Node = null
 
+var _collided_nodes = []
+
 func disable():
 	_collision.disabled = true
+	_collided_nodes.clear()
 	
 func enable():
 	_collision.disabled = false
+	_collided_nodes.clear()
 
 func set_shape(shape):
 	_collision.shape = shape
+	
+func register_collision(node):
+	_collided_nodes.append(node)
+	
+func is_collided(node) -> bool:
+	return _collided_nodes.has(node)
+	
