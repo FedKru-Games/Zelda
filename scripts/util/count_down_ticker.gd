@@ -12,6 +12,10 @@ func tick(delta: float):
 		_timer -= delta
 		if is_completed():
 			ticker_ended.emit()
+			
+func complete():
+	_timer = 0
+	ticker_ended.emit()
 
 func is_completed() -> bool:
 	return _timer <= 0

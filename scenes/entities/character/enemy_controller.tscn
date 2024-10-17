@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://ybwbfl0i1ydd"]
+
+[ext_resource type="Script" path="res://scripts/entities/character/controllers/enemy_controller.gd" id="1_bbby3"]
+[ext_resource type="PackedScene" uid="uid://cux8udym3no7b" path="res://scenes/entities/character/character.tscn" id="2_k3f7w"]
+[ext_resource type="Resource" uid="uid://qvqext1essdi" path="res://resources/characters/ninja.tres" id="3_wgga6"]
+
+[node name="EnemyController" type="Node"]
+script = ExtResource("1_bbby3")
+
+[node name="Character" parent="." instance=ExtResource("2_k3f7w")]
+position = Vector2(182, 74)
+data = ExtResource("3_wgga6")
+fraction_id = "evil"

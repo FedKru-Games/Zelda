@@ -1,9 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://nfwmgdosys15"]
+[gd_scene load_steps=7 format=3 uid="uid://nfwmgdosys15"]
 
 [ext_resource type="Script" path="res://scripts/ui/inventory/inventory_cell.gd" id="1_m4irc"]
 [ext_resource type="Texture2D" uid="uid://bjn7sgemvnna0" path="res://resources/FedKru/sprites/ui/inventory_cell.png" id="2_3g5d3"]
 [ext_resource type="Texture2D" uid="uid://c1551ci3f63p6" path="res://resources/FedKru/sprites/ui/inventory_cell_selected.png" id="3_cn3a2"]
 [ext_resource type="Texture2D" uid="uid://dm606c31bf7un" path="res://resources/Ninjas/Items/Weapons/Katana/Sprite.png" id="4_qjrro"]
+[ext_resource type="FontFile" uid="uid://b21c7k0gstsf1" path="res://resources/Ninjas/Ui/Font/NormalFont.ttf" id="5_jt0et"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_e1xxe"]
+font = ExtResource("5_jt0et")
+font_size = 20
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 0
 
 [node name="CenterContainer" type="CenterContainer"]
 custom_minimum_size = Vector2(72, 72)
@@ -25,3 +33,16 @@ custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
 texture = ExtResource("4_qjrro")
 stretch_mode = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(52, 60)
+layout_mode = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+text = "99"
+label_settings = SubResource("LabelSettings_e1xxe")

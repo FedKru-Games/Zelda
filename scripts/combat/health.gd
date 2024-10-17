@@ -33,4 +33,4 @@ func take_damage(damage: int):
 	_change_health(health - damage)
 	
 func heal(heal: int):
-	_change_health(heal)
+	_change_health(health + heal)

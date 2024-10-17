@@ -1,6 +1,6 @@
 extends Node
 
-var _items_array = [
+var _items_array: Array[ItemData] = [
 	preload("res://resources/inventory/weapons/axe.tres"),
 	preload("res://resources/inventory/weapons/battle_axe.tres"),
 	preload("res://resources/inventory/weapons/katana.tres"),

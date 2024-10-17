@@ -2,7 +2,19 @@ extends Node
 
 @onready var character: Character = get_node('Character')
 
+func _inventory_input(event: InputEvent):
+	var item_index = null
+	
+	for i in range(5):
+		if event.is_action("item_" + str(i + 1)):
+			character.inventory.select_slot(i)
+			return
+
+func _input(event):
+	_inventory_input(event)
+
 func _physics_process(delta):
+	
 	var input_left = Input.get_action_strength("move_left")
 	var input_right = Input.get_action_strength("move_right")
 	var input_up = Input.get_action_strength("move_up")

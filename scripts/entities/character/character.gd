@@ -6,7 +6,7 @@ class_name Character extends CharacterBody2D
 @onready var health = Health.new(data.max_health)
 @onready var inventory = Inventory.new(5)
 
-@onready var character_finder = get_node("CharacterFinder")
+@onready var character_finder:	CharacterFinder = get_node("CharacterFinder")
 @onready var attacker: Attacker = get_node("Attacker")
 @onready var holster: ItemHolster = get_node("ItemHolster")
 @onready var hurtbox: HurtBox = get_node("Hurtbox")

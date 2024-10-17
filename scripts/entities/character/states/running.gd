@@ -12,3 +12,4 @@ func on_physics_process(delta: float):
 	character.run()
 	character.move_and_slide()
 	melee()
+	use_healing_item()

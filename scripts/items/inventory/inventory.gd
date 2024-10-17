@@ -16,12 +16,24 @@ func _init(size: int):
 	_generate_items_array()
 
 func select_slot(position: int):
-	if position > size or position < 0:
+	if position > size - 1 or position < 0:
 		return
 	
 	selected_slot = position
 	selected_item_changed.emit(get_item_stack(selected_slot), selected_slot)
+
+func remove(position: int = selected_slot, amount: int = 1):
+	if position > size or position < 0:
+		return null
 	
+	_items[position].content.quantity -= 1
+	if _items[position].content.quantity <= 0:
+		_items[position].content = null
+	
+	if selected_slot == position:
+		selected_item_changed.emit(_items[position].content, position)
+			
+	inventory_cell_changed.emit(position, _items[position])
 	
 func add_item(item_id: String, quantity: int = 0) -> bool:
 	var index = 0
