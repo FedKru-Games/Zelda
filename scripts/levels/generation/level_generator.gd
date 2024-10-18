@@ -9,9 +9,7 @@ func generate_level(level_type: String) -> LevelNode:
 	var locations = LevelsDatabase.levels.get(level_type)
 	
 	var packed_locations = [
-		_get_random_location(locations['start']),
-		_get_random_location(locations['middle']),
-		_get_random_location(locations['end'])
+		_get_random_location(locations['arena']),
 	]
 	
 	var location_nodes: Array[PackedScene] = []

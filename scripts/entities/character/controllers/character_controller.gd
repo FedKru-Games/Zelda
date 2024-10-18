@@ -21,6 +21,7 @@ func _physics_process(delta):
 	var input_down = Input.get_action_strength("move_down")
 	var input_run = Input.is_action_pressed("move_run")
 	var input_attack = Input.is_action_just_pressed("weapon_attack")
+	var input_use = Input.is_action_just_pressed("use")
 	
 	character.input_x = input_right - input_left
 	character.input_y = input_down - input_up

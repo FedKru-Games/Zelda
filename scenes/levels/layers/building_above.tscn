@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=4 uid="uid://gs5mrm35vfnb"]
+[gd_scene load_steps=36 format=3 uid="uid://gs5mrm35vfnb"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_oyuc7"]
 load_path = "res://.godot/imported/Pipes.png-43ba64e2968426ede88f2d8d5890fef0.ctex"
@@ -4149,5 +4149,4 @@ sources/17 = SubResource("TileSetAtlasSource_hxokg")
 [node name="Building Above" type="TileMapLayer"]
 z_index = 1
 use_parent_material = true
-tile_map_data = PackedByteArray("AAADAPr/CgAZAAcAAAADAPv/CgAZAAgAAAAEAPr/CgAaAAcAAAAEAPv/CgAaAAgAAAAFAPr/CgAbAAcAAAAFAPv/CgAbAAgAAAAGAPr/CgAcAAcAAAAGAPv/CgAcAAgAAAADAPz/CgAZAAkAAAAEAPz/CgAaAAkAAAAFAPz/CgAbAAkAAAAGAPz/CgAcAAkAAAAPAPz/CgAIAAAAAAAQAPz/CgAJAAAAAAARAPz/CgAKAAAAAAASAPz/CgALAAAAAAAPAP3/CgAIAAEAAAAQAP3/CgAJAAEAAAARAP3/CgAKAAEAAAASAP3/CgALAAEAAAA=")
 tile_set = SubResource("TileSet_1oh08")

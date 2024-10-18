@@ -7,11 +7,12 @@ var level_generator = LevelGenerator.new()
 func _ready() -> void:
 	var level = level_generator.generate_level('grass')
 	add_child(level)
-	if level.start_point != null:
-		player.transform.origin = level.start_point
+	player.transform.origin = level.doors[Door.Position.LEFT].transform.origin
 	
 	for location in level.locations:
-		if location.has_spawn_points():
-			for point in location.get_spawn_points():
-				if point is SpawnPoint:
-					point.spawn()
+		for point in location.get_spawn_points():
+			if point is SpawnPoint:
+				point.spawn()
+
+func _switch_level():
+	pass

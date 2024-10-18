@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://d4l17jq8v8kwg"]
+
+[ext_resource type="Script" path="res://scripts/levels/locations/door.gd" id="1_xeti7"]
+[ext_resource type="Texture2D" uid="uid://b5uyv2ri7l0g5" path="res://resources/FedKru/sprites/objects/HoleSmall.png" id="2_m1aoy"]
+
+[node name="Door" type="Node2D"]
+z_index = -1
+script = ExtResource("1_xeti7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_m1aoy")
