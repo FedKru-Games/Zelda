@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://cux8udym3no7b"]
+[gd_scene load_steps=48 format=3 uid="uid://cux8udym3no7b"]
 
 [ext_resource type="Script" path="res://scripts/entities/character/character.gd" id="1_d8ed4"]
 [ext_resource type="Resource" uid="uid://ba7f0cicf7b2v" path="res://resources/characters/knight.tres" id="2_npg4v"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://dwqhmp8f6h53y" path="res://resources/Ninjas/Ui/LifeBarMiniProgress.png" id="14_21ntb"]
 [ext_resource type="Script" path="res://scripts/ui/health_displayer.gd" id="15_af560"]
 [ext_resource type="Script" path="res://scripts/combat/character_finder.gd" id="17_5tdxq"]
+[ext_resource type="Script" path="res://scripts/objects/object_finder.gd" id="18_4nbd5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cs41l"]
 size = Vector2(14, 10)
@@ -883,6 +884,9 @@ size = Vector2(14, 12)
 [sub_resource type="CircleShape2D" id="CircleShape2D_nlmx7"]
 radius = 80.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_wa0ik"]
+radius = 18.0
+
 [node name="Character" type="CharacterBody2D"]
 collision_layer = 0
 motion_mode = 1
@@ -972,3 +976,13 @@ script = ExtResource("17_5tdxq")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterFinder"]
 shape = SubResource("CircleShape2D_nlmx7")
 debug_color = Color(0.364706, 0.572549, 0.639216, 0.0666667)
+
+[node name="ObjectFinder" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+monitorable = false
+script = ExtResource("18_4nbd5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ObjectFinder"]
+shape = SubResource("CircleShape2D_wa0ik")
+debug_color = Color(0.623529, 0.533333, 0, 0)
