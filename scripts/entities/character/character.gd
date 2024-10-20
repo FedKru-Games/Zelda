@@ -7,6 +7,7 @@ class_name Character extends CharacterBody2D
 @onready var inventory = Inventory.new(5)
 
 @onready var character_finder:	CharacterFinder = get_node("CharacterFinder")
+@onready var object_finder: ObjectFinder = get_node("ObjectFinder")
 @onready var attacker: Attacker = get_node("Attacker")
 @onready var holster: ItemHolster = get_node("ItemHolster")
 @onready var hurtbox: HurtBox = get_node("Hurtbox")
@@ -57,6 +58,7 @@ func _ready():
 	
 	holster.init(inventory)
 	character_finder.init(self)
+	object_finder.init(self)
 	
 	_health_bar.init(health)
 	_state_machine.init(self)

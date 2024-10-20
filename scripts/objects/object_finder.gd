@@ -1,15 +1,22 @@
 class_name ObjectFinder extends Area2D
 
-signal on_object_found(character: Node2D, relation: Fraction.Relation) 
+var character: Character
 
-signal on_object_lost(character: Node2D, relation: Fraction.Relation)
+signal object_found(object: UsableArea) 
 
+signal object_lost(object: UsableArea)
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+func _on_area_entered(other):
+	if other != null and other is UsableArea:
+		object_found.emit(other)
 
+func _on_area_exited(other):
+	if other != null and other is UsableArea:
+		object_lost.emit(other)
+		
+func init(character: Character):
+	self.character = character
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _ready():	
+	connect("area_entered", _on_area_entered)
+	connect("area_exited", _on_area_exited)

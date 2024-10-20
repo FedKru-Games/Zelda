@@ -17,6 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+EventBus="*res://scripts/base/event_bus.gd"
 PackedScenes="*res://scripts/util/packed_scenes.gd"
 ItemDatabase="*res://scripts/items/data/item_database.gd"
 FractionDatabase="*res://scripts/combat/fraction/fraction_database.gd"
@@ -28,7 +29,7 @@ LevelsDatabase="*res://scripts/levels/generation/levels_database.gd"
 
 window/size/viewport_width=1024
 window/size/viewport_height=576
-window/size/mode=3
+window/size/initial_position_type=2
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
@@ -36,9 +37,10 @@ window/stretch/aspect="expand"
 
 project/assembly_name="Zelda"
 
-[editor_plugins]
+[editor]
 
-enabled=PackedStringArray()
+version_control/plugin_name="GitPlugin"
+version_control/autoload_on_startup=true
 
 [input]
 

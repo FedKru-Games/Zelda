@@ -1,4 +1,4 @@
-extends Node
+class_name CharacterController extends Node
 
 @onready var character: Character = get_node('Character')
 

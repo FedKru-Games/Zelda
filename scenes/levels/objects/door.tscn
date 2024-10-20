@@ -1,7 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://d4l17jq8v8kwg"]
+[gd_scene load_steps=7 format=3 uid="uid://d4l17jq8v8kwg"]
 
-[ext_resource type="Script" path="res://scripts/levels/locations/door.gd" id="1_xeti7"]
+[ext_resource type="Script" path="res://scripts/objects/door/door.gd" id="1_xeti7"]
 [ext_resource type="Texture2D" uid="uid://b5uyv2ri7l0g5" path="res://resources/FedKru/sprites/objects/HoleSmall.png" id="2_m1aoy"]
+[ext_resource type="Script" path="res://scripts/objects/usable_area.gd" id="3_6n8py"]
+[ext_resource type="Script" path="res://scripts/objects/usable_action.gd" id="4_4hsay"]
+
+[sub_resource type="Resource" id="Resource_k17ql"]
+script = ExtResource("4_4hsay")
+id = "enter"
+name = "Enter"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0qfk1"]
 
@@ -12,10 +19,13 @@ script = ExtResource("1_xeti7")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_m1aoy")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="DoorActions" type="Area2D" parent="."]
 collision_layer = 4
 collision_mask = 0
 monitoring = false
+script = ExtResource("3_6n8py")
+section_name = "Door"
+actions = Array[ExtResource("4_4hsay")]([SubResource("Resource_k17ql")])
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorActions"]
 shape = SubResource("CircleShape2D_0qfk1")

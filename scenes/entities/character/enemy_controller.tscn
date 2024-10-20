@@ -8,6 +8,5 @@
 script = ExtResource("1_bbby3")
 
 [node name="Character" parent="." instance=ExtResource("2_k3f7w")]
-position = Vector2(182, 74)
 data = ExtResource("3_wgga6")
 fraction_id = "evil"
