@@ -1,0 +1,51 @@
+[gd_scene load_steps=10 format=3 uid="uid://bfq52cs1qansb"]
+
+[ext_resource type="FontFile" uid="uid://b21c7k0gstsf1" path="res://resources/Ninjas/Ui/Font/NormalFont.ttf" id="1_36bbh"]
+[ext_resource type="Texture2D" uid="uid://tb47kcaqwbik" path="res://resources/Ninjas/Ui/Theme/ThemeWood/button_hover.png" id="2_wnl11"]
+[ext_resource type="Texture2D" uid="uid://8yvt6ukrivr1" path="res://resources/Ninjas/Ui/Theme/ThemeWood/button_pressed.png" id="3_mtgsh"]
+[ext_resource type="Texture2D" uid="uid://ch5k0rua0cgcl" path="res://resources/Ninjas/Ui/Theme/ThemeWood/button_normal.png" id="4_goq2i"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_abp43"]
+texture = ExtResource("2_wnl11")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ljniv"]
+texture = ExtResource("3_mtgsh")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_st5ly"]
+texture = ExtResource("2_wnl11")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_icimk"]
+texture = ExtResource("3_mtgsh")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qgaxa"]
+texture = ExtResource("4_goq2i")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+
+[node name="Button" type="Button"]
+texture_filter = 1
+theme_override_fonts/font = ExtResource("1_36bbh")
+theme_override_styles/focus = SubResource("StyleBoxTexture_abp43")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_ljniv")
+theme_override_styles/hover = SubResource("StyleBoxTexture_st5ly")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_icimk")
+theme_override_styles/normal = SubResource("StyleBoxTexture_qgaxa")
+text = "Enter"

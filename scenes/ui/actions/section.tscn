@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://cg1wltagxvep8"]
+
+[ext_resource type="FontFile" uid="uid://b21c7k0gstsf1" path="res://resources/Ninjas/Ui/Font/NormalFont.ttf" id="1_mg1jt"]
+[ext_resource type="Script" path="res://scripts/ui/actions/section.gd" id="1_og7rt"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_jdqej"]
+font = ExtResource("1_mg1jt")
+font_color = Color(0, 0, 0, 1)
+
+[node name="Section" type="VBoxContainer"]
+theme_override_constants/separation = 0
+alignment = 1
+script = ExtResource("1_og7rt")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+size_flags_vertical = 0
+label_settings = SubResource("LabelSettings_jdqej")
+horizontal_alignment = 1
+uppercase = true
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="Actions" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 4
