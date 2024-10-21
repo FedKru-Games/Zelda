@@ -25,7 +25,7 @@ collision_mask = 0
 monitoring = false
 script = ExtResource("3_6n8py")
 section_name = "Door"
-actions = Array[ExtResource("4_4hsay")]([SubResource("Resource_k17ql")])
+actions = Array[ExtResource("4_4hsay")]([SubResource("Resource_k17ql"), SubResource("Resource_k17ql"), SubResource("Resource_k17ql"), SubResource("Resource_k17ql"), SubResource("Resource_k17ql")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DoorActions"]
 shape = SubResource("CircleShape2D_0qfk1")
