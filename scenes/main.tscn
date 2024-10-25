@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://cx6847vm4yd30"]
+[gd_scene load_steps=22 format=4 uid="uid://cx6847vm4yd30"]
 
 [ext_resource type="Script" path="res://scripts/entities/character/controllers/character_controller.gd" id="1_1h7sr"]
 [ext_resource type="PackedScene" uid="uid://cux8udym3no7b" path="res://scenes/entities/character/character.tscn" id="2_b4r2p"]
@@ -31,6 +31,84 @@ shader_parameter/cutoff = 1.0
 shader_parameter/smooth_size = 0.455
 shader_parameter/color = null
 shader_parameter/mask = ExtResource("13_xpml3")
+
+[sub_resource type="Animation" id="Animation_74pxy"]
+resource_name = "fade_in"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:material:shader_parameter/cutoff")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_0tg85"]
+resource_name = "fade_out"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/cutoff")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_d280b"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("ShaderMaterial_tnydd")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:material:shader_parameter/cutoff")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sngh2"]
+_data = {
+"RESET": SubResource("Animation_d280b"),
+"fade_in": SubResource("Animation_74pxy"),
+"fade_out": SubResource("Animation_0tg85")
+}
 
 [node name="Root" type="Node2D"]
 
@@ -147,3 +225,8 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HUD/LevelSwitchTransition"]
+libraries = {
+"": SubResource("AnimationLibrary_sngh2")
+}
