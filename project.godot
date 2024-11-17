@@ -22,7 +22,7 @@ PackedScenes="*res://scripts/util/packed_scenes.gd"
 ItemDatabase="*res://scripts/items/data/item_database.gd"
 FractionDatabase="*res://scripts/combat/fraction/fraction_database.gd"
 FractionRelationDatabase="*res://scripts/combat/fraction/fraction_relation_database.gd"
-CharacterDatabase="*res://scripts/entities/character/character_database.gd"
+CharacterDatabase="*res://scripts/entities/character/data/character_database.gd"
 LevelsDatabase="*res://scripts/levels/generation/levels_database.gd"
 
 [display]

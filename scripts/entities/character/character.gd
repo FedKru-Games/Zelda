@@ -63,7 +63,5 @@ func _ready():
 	_health_bar.init(health)
 	_state_machine.init(self)
 	
-	inventory.add_item('battle_axe', 1)
+	inventory.add_item(data.default_weapon, 1)
 	inventory.add_item('health_potion', 5)
-	inventory.add_item('katana', 1)
-	inventory.add_item('axe', 1)

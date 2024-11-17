@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="WeaponData" load_steps=4 format=3 uid="uid://10577b1mp46a"]
+
+[ext_resource type="Texture2D" uid="uid://crfiln06sfdr" path="res://resources/Ninjas/Items/Weapons/Sai/SpriteInHand.png" id="1_rvlnl"]
+[ext_resource type="Script" path="res://scripts/items/data/weapon/weapon_data.gd" id="2_nsev5"]
+[ext_resource type="Texture2D" uid="uid://cdwi0kq4jfu8d" path="res://resources/Ninjas/Items/Weapons/Sai/Sprite.png" id="3_bswn6"]
+
+[resource]
+script = ExtResource("2_nsev5")
+damage = 25
+attack_cooldown = 0.3
+swing_duration = 0.1
+attack_duration = 0.2
+attack_width = 12.0
+attack_height = 24.0
+id = "sai"
+name = "Sai"
+texture = ExtResource("3_bswn6")
+holster_texture = ExtResource("1_rvlnl")
+max_in_stack = 1
