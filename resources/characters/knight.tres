@@ -9,4 +9,8 @@ run_speed = 60.0
 walk_speed = 30.0
 max_health = 100
 skin = ExtResource("2_yravs")
+<<<<<<< HEAD
 default_weapon = "battle_axe"
+=======
+default_weapon = "axe"
+>>>>>>> 1a850e876870314e5fd19f87643a9d962426c0e8
