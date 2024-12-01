@@ -12,3 +12,6 @@ func on_damage_taken(damage: int):
 
 func on_exit():
 	character.holster.sprite.visible = true
+
+func on_knockback_taken(knockback_strength: float, from: Vector2):
+	pass

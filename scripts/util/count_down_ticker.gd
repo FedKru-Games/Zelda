@@ -19,3 +19,6 @@ func complete():
 
 func is_completed() -> bool:
 	return _timer <= 0
+	
+func get_time():
+	return _timer

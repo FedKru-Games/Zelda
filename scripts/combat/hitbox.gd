@@ -3,6 +3,7 @@ class_name HitBox extends Area2D
 @onready var _collision: CollisionShape2D = get_node("CollisionShape2D")
 
 var damage: int = 0
+var knockback_strength: float = 0
  
 var owner_entity: Node = null
 

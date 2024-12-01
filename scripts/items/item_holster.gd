@@ -1,6 +1,7 @@
 class_name ItemHolster extends Node2D
 
-@onready var sprite: Sprite2D = get_node("ItemSprite")
+@onready var sprite: Sprite2D = get_node("RotationPivot/ItemSprite")
+@onready var rotation_pivot: Node2D = get_node("RotationPivot")
 
 var inventory: Inventory
 

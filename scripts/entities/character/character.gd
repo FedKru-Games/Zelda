@@ -17,6 +17,8 @@ class_name Character extends CharacterBody2D
 @onready var _character_sprite: Sprite2D = get_node("CharacterSprite")
 @onready var _health_bar: TextureProgressBar = get_node("HealthBar")
 
+var knockback: Vector2 = Vector2.ZERO
+
 var direction = Vector2(0, 1)
 
 var input_x = 0.0
@@ -31,11 +33,14 @@ func has_movement_intention() -> bool:
 	return input_x != 0 || input_y != 0
 	
 func walk():
-	velocity = Vector2(input_x, input_y).normalized() * data.walk_speed
+	apply_force(Vector2(input_x, input_y).normalized() * data.walk_speed)
 	
 func run():
-	velocity = Vector2(input_x, input_y).normalized() * data.run_speed
+	apply_force(Vector2(input_x, input_y).normalized() * data.run_speed)
 	
+func apply_force(force: Vector2):
+	velocity = force
+
 func get_direction_name() -> String:
 	if direction.y < -0.5:
 		return "up"
@@ -63,7 +68,5 @@ func _ready():
 	_health_bar.init(health)
 	_state_machine.init(self)
 	
-	inventory.add_item('battle_axe', 1)
+	inventory.add_item(data.default_weapon, 1)
 	inventory.add_item('health_potion', 5)
-	inventory.add_item('katana', 1)
-	inventory.add_item('axe', 1)

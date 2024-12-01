@@ -15,13 +15,14 @@ func _on_attack_ended():
 func attack(weapon: WeaponData, direction: Vector2):	
 	hitbox.enable()
 	hitbox.damage = weapon.damage
+	hitbox.knockback_strength = weapon.knockback_strength
 	
 	var shape = RectangleShape2D.new()
 	shape.size = Vector2(weapon.attack_width, weapon.attack_height)
 	hitbox.set_shape(shape)
 	
-	rotation = atan2(direction.y, direction.x) - PI / 2
-	position = direction * weapon.attack_height / 2
+	hitbox.rotation = atan2(direction.y, direction.x) - PI / 2
+	hitbox.position = direction * weapon.attack_height / 2
 	
 	_ticker.set_ticker(weapon.attack_duration)
 

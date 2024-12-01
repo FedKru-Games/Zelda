@@ -1,11 +1,12 @@
 [gd_resource type="Resource" script_class="CharacterData" load_steps=3 format=3 uid="uid://qvqext1essdi"]
 
-[ext_resource type="Script" path="res://scripts/entities/character/character_data.gd" id="1_lxrqf"]
+[ext_resource type="Script" path="res://scripts/entities/character/data/character_data.gd" id="1_wo32w"]
 [ext_resource type="Texture2D" uid="uid://b6d64kkxicdjx" path="res://resources/Ninjas/Actor/Characters/NinjaDark/SpriteSheet.png" id="2_tsxed"]
 
 [resource]
-script = ExtResource("1_lxrqf")
+script = ExtResource("1_wo32w")
 run_speed = 100.0
 walk_speed = 50.0
 max_health = 60
 skin = ExtResource("2_tsxed")
+default_weapon = "sai"
