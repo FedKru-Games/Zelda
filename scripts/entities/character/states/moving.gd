@@ -11,5 +11,6 @@ func on_physics_process(delta: float):
 	character.animate("walk_" + character.get_direction_name())
 	character.walk()
 	character.move_and_slide()
+	block(delta)
 	melee()
 	use_healing_item()

@@ -20,7 +20,7 @@ func _input(event):
 func _physics_process(delta):
 	if _state != null:
 		_state.on_physics_process(delta)
-
+	
 
 func pop() -> bool:
 	if len(_state_row) > 1:
@@ -33,7 +33,7 @@ func pop() -> bool:
 
 func set_state(state: State):
 	_state_row.push_front(state)
-	if len(_state_row) > 3:
+	if len(_state_row) > 20:
 		_state_row.pop_back()
 	if _state != null:
 		_state.on_exit()

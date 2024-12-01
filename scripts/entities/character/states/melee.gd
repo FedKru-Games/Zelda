@@ -67,13 +67,14 @@ func _rotate_weapon_to_attack_tick():
 
 func on_physics_process(delta: float):
 	_swingTicker.tick(delta)
-	_attackTicker.tick(delta)
 	
 	if not _attack_started:
 		character.update_direction()
 		direction = character.direction.normalized()
 		character.animate("swing_" + character.get_direction_name())
 		_rotate_weapon()
+	else:
+		_attackTicker.tick(delta)
 		
 	if _rotate_weapon_to_attack:
 		_rotate_weapon_to_attack_tick()

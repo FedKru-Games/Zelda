@@ -1,5 +1,8 @@
 class_name Character extends CharacterBody2D
 
+const blood_impact_scene = preload("res://scenes/particles/attack_blood_impact.tscn")
+const block_impact_scene = preload("res://scenes/particles/attack_block_impact.tscn")
+
 @export var data: CharacterData
 @export var fraction_id: String = 'good'
 
@@ -11,20 +14,23 @@ class_name Character extends CharacterBody2D
 @onready var attacker: Attacker = get_node("Attacker")
 @onready var holster: ItemHolster = get_node("ItemHolster")
 @onready var hurtbox: HurtBox = get_node("Hurtbox")
+@onready var blocker: Blocker = get_node("Blocker")
 
 @onready var _state_machine: CharacterStateMachine = get_node("StateMachine")
 @onready var _animation_player: AnimationPlayer = get_node("AnimationPlayer")
 @onready var _character_sprite: Sprite2D = get_node("CharacterSprite")
 @onready var _health_bar: TextureProgressBar = get_node("HealthBar")
 
-var knockback: Vector2 = Vector2.ZERO
 
+var block_cooldown = CountDownTicker.new()
+var knockback: Vector2 = Vector2.ZERO
 var direction = Vector2(0, 1)
 
 var input_x = 0.0
 var input_y = 0.0
 var input_run = false
 var input_attack = false
+var input_block = false
 
 func animate(animation_name: String):
 	_animation_player.play(animation_name)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://cux8udym3no7b"]
+[gd_scene load_steps=52 format=3 uid="uid://cux8udym3no7b"]
 
 [ext_resource type="Script" path="res://scripts/entities/character/character.gd" id="1_d8ed4"]
 [ext_resource type="Resource" uid="uid://ba7f0cicf7b2v" path="res://resources/characters/knight.tres" id="2_npg4v"]
@@ -14,6 +14,8 @@
 [ext_resource type="Script" path="res://scripts/entities/character/states/knockback.gd" id="9_6gxie"]
 [ext_resource type="Script" path="res://scripts/items/weapon/attacker.gd" id="9_qvpju"]
 [ext_resource type="Script" path="res://scripts/combat/hitbox.gd" id="10_jfn8f"]
+[ext_resource type="Script" path="res://scripts/entities/character/states/block.gd" id="10_s48i6"]
+[ext_resource type="Script" path="res://scripts/combat/blocker.gd" id="13_chb6r"]
 [ext_resource type="Texture2D" uid="uid://0h3oggogn13x" path="res://resources/Ninjas/Ui/LifeBarMiniUnder.png" id="13_hdnxx"]
 [ext_resource type="Texture2D" uid="uid://dwqhmp8f6h53y" path="res://resources/Ninjas/Ui/LifeBarMiniProgress.png" id="14_21ntb"]
 [ext_resource type="Script" path="res://scripts/ui/health_displayer.gd" id="15_af560"]
@@ -879,6 +881,9 @@ load_path = "res://.godot/imported/SpriteSheet.png-2dd8373a3f1694fab15d509fa0e8a
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wq8eh"]
 size = Vector2(18, 18)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_46b4p"]
+size = Vector2(18, 18)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_632ms"]
 size = Vector2(14, 12)
 
@@ -933,6 +938,9 @@ script = ExtResource("7_oxcih")
 [node name="Knockback" type="Node" parent="StateMachine"]
 script = ExtResource("9_6gxie")
 
+[node name="Block" type="Node" parent="StateMachine"]
+script = ExtResource("10_s48i6")
+
 [node name="Hurtbox" type="Area2D" parent="."]
 collision_mask = 3
 script = ExtResource("6_hsbvy")
@@ -950,13 +958,20 @@ texture_filter = 1
 position = Vector2(-5, 9)
 texture = ExtResource("7_owaqf")
 
+[node name="Blocker" type="Area2D" parent="."]
+collision_mask = 3
+script = ExtResource("13_chb6r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocker"]
+shape = SubResource("RectangleShape2D_46b4p")
+disabled = true
+
 [node name="Attacker" type="Node2D" parent="."]
 script = ExtResource("9_qvpju")
 
 [node name="HitBox" type="Area2D" parent="Attacker"]
 collision_layer = 2
-collision_mask = 0
-monitoring = false
+collision_mask = 2
 script = ExtResource("10_jfn8f")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Attacker/HitBox"]

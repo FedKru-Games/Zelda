@@ -25,7 +25,6 @@ func init(health: Health):
 func _on_health_changed(health: int, is_dead: float):
 	target_value = health
 	target_value_weight = 0
-	visible = !is_dead and health < _health.max_health
 	
 func _on_max_health_changed(max_health: int):
 	target_max_value_weight = 0
@@ -34,9 +33,11 @@ func _on_max_health_changed(max_health: int):
 
 func _process(delta):
 	if target_max_value_weight < 1:
-		target_max_value_weight = min(1, target_max_value_weight + delta * 5)	
+		target_max_value_weight = clampf(target_max_value_weight + delta, 0, 1)	
 		max_value = lerpf(value, target_max_value, target_max_value_weight)
+		visible = !_health.is_dead and value < _health.max_health
 		
 	if target_value_weight < 1:
-		target_value_weight = min(1, target_value_weight + delta * 5)
+		target_value_weight = clampf(target_value_weight + delta, 0, 1)
 		value = lerpf(value, target_value, target_value_weight)
+		visible = !_health.is_dead and value < _health.max_health

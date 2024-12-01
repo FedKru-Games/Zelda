@@ -12,6 +12,7 @@ swing_duration = 0.3
 attack_duration = 0.3
 attack_width = 12.0
 attack_height = 24.0
+knockback_strength = 100.0
 id = "battle_axe"
 name = "Battle Axe"
 texture = ExtResource("3_fhgv7")

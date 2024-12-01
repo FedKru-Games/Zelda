@@ -5,7 +5,11 @@ signal ticker_ended()
 var _timer: float = 0.0
 
 func set_ticker(timer: float):
-	_timer = timer
+	if timer <= 0:
+		complete()
+	else:
+		_timer = timer
+		
 	
 func tick(delta: float):
 	if _timer > 0:

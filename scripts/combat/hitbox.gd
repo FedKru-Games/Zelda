@@ -1,5 +1,7 @@
 class_name HitBox extends Area2D
 
+signal block_taken()
+
 @onready var _collision: CollisionShape2D = get_node("CollisionShape2D")
 
 var damage: int = 0
@@ -19,6 +21,10 @@ func enable():
 
 func set_shape(shape):
 	_collision.shape = shape
+	
+func register_block(node):
+	_collided_nodes.append(node)
+	block_taken.emit()
 	
 func register_collision(node):
 	_collided_nodes.append(node)

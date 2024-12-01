@@ -1,0 +1,60 @@
+[gd_scene load_steps=8 format=3 uid="uid://bka1lebno7dhu"]
+
+[ext_resource type="Script" path="res://scripts/combat/impact/impact_particles.gd" id="1_yvmfg"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_fvxjo"]
+particles_animation = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Gradient" id="Gradient_0pu8n"]
+offsets = PackedFloat32Array(0, 0.745645, 1)
+colors = PackedColorArray(0.905882, 0, 0, 1, 0.897939, 0.29618, 0.268176, 1, 0.235294, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_1245t"]
+gradient = SubResource("Gradient_0pu8n")
+
+[sub_resource type="Curve" id="Curve_hpn3o"]
+min_value = 0.25
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_f08m4"]
+curve = SubResource("Curve_hpn3o")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_t10u5"]
+particle_flag_disable_z = true
+angle_min = 1.07288e-05
+angle_max = 1.07288e-05
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_min = 50.0
+initial_velocity_max = 100.0
+gravity = Vector3(0, 0, 0)
+linear_accel_min = -2.23517e-06
+linear_accel_max = -2.23517e-06
+radial_accel_min = -2.23517e-06
+radial_accel_max = -2.23517e-06
+damping_min = 200.0
+damping_max = 400.0
+scale_min = 2.0
+scale_max = 2.0
+scale_curve = SubResource("CurveTexture_f08m4")
+color = Color(0.769595, 0.429446, 0.310892, 1)
+color_ramp = SubResource("GradientTexture1D_1245t")
+anim_speed_max = 20.65
+
+[node name="AttackBloodImpact" type="GPUParticles2D"]
+material = SubResource("CanvasItemMaterial_fvxjo")
+emitting = false
+amount = 50
+process_material = SubResource("ParticleProcessMaterial_t10u5")
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+script = ExtResource("1_yvmfg")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -11,5 +11,5 @@ func on_physics_process(delta: float):
 	use_healing_item()
 	
 	if character.get_real_velocity().length() <= character.data.walk_speed:
-		pop()
+		change_state("moving")
 		return
