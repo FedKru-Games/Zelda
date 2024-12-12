@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://bx2la5qtb2pw3"]
+[gd_scene load_steps=13 format=4 uid="uid://bx2la5qtb2pw3"]
 
 [ext_resource type="Script" path="res://scripts/levels/locations/location.gd" id="1_6fx3w"]
 [ext_resource type="TileSet" uid="uid://biyujvb7jlpgd" path="res://resources/tilesets/tileset.tres" id="2_h18xu"]
@@ -10,6 +10,12 @@
 [ext_resource type="Script" path="res://scripts/levels/spawns/data/enemy_spawn_point.gd" id="8_2jj2u"]
 [ext_resource type="PackedScene" uid="uid://d4l17jq8v8kwg" path="res://scenes/levels/objects/door.tscn" id="9_f2fom"]
 [ext_resource type="PackedScene" uid="uid://cr40qhxed4d5d" path="res://scenes/levels/objects/box.tscn" id="10_ba46r"]
+[ext_resource type="Script" path="res://scripts/items/inventory/item_stack.gd" id="11_5rhe3"]
+
+[sub_resource type="Resource" id="Resource_37ewy"]
+script = ExtResource("11_5rhe3")
+item_id = "health_potion"
+quantity = 5
 
 [node name="Arena2" type="Node2D"]
 script = ExtResource("1_6fx3w")
@@ -79,3 +85,7 @@ position = Vector2(193, 116)
 
 [node name="Box5" parent="." instance=ExtResource("10_ba46r")]
 position = Vector2(52, 115)
+
+[node name="Box6" parent="." instance=ExtResource("10_ba46r")]
+position = Vector2(32, 138)
+items = Array[ExtResource("11_5rhe3")]([SubResource("Resource_37ewy")])
