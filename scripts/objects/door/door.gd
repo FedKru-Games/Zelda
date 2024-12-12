@@ -19,9 +19,9 @@ static func invertPosition(position: Position) -> Position:
 			return Position.TOP
 		_:
 			return Position.LEFT
-			
-signal door_entered(user: Node2D)
 
+signal door_entered(user: Node2D)
+ 
 @export var door_position: Position
 
 @onready var door_actions: UsableArea = get_node("DoorActions")
