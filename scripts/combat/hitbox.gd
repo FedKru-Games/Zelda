@@ -12,11 +12,11 @@ var owner_entity: Node = null
 var _collided_nodes = []
 
 func disable():
-	_collision.disabled = true
+	_collision.set_deferred('disabled', true)
 	_collided_nodes.clear()
 	
 func enable():
-	_collision.disabled = false
+	_collision.set_deferred('disabled', false)
 	_collided_nodes.clear()
 
 func set_shape(shape):

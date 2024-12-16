@@ -24,11 +24,13 @@ FractionDatabase="*res://scripts/combat/fraction/fraction_database.gd"
 FractionRelationDatabase="*res://scripts/combat/fraction/fraction_relation_database.gd"
 CharacterDatabase="*res://scripts/entities/character/data/character_database.gd"
 LevelsDatabase="*res://scripts/levels/generation/levels_database.gd"
+ItemPickupHandler="*res://scripts/handlers/item_pickup_handler.gd"
 
 [display]
 
 window/size/viewport_width=1024
 window/size/viewport_height=576
+window/size/mode=4
 window/size/initial_position_type=2
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
@@ -114,6 +116,11 @@ weapon_block={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194326,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
 ]
 }
+
+[layer_names]
+
+2d_render/layer_5="FloorItem"
+2d_physics/layer_6="Items"
 
 [physics]
 

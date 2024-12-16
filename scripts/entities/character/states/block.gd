@@ -13,6 +13,7 @@ func on_enter():
 		weapon = item
 		character.blocker.enable()
 		ticker.set_ticker(weapon.block_duration)
+		character.audio.block.play()
 	else:
 		pop()
 

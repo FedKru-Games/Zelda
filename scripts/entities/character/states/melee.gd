@@ -40,6 +40,7 @@ func on_exit():
 	super.on_exit()
 	_swingTicker.ticker_ended.disconnect(_on_swing_end)
 	_attackTicker.ticker_ended.disconnect(_on_attack_end)
+	attacker.end_attack()
 		
 func _on_swing_end():
 	character.attacker.attack(weapon, character.direction)

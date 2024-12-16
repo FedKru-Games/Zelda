@@ -14,7 +14,9 @@ func _cell_clicked(index: int):
 func _inventory_size_changed(size: int):
 	while len(cells) > size:
 		cells.back().cell_clicked.disconnect(_cell_clicked)
-		remove_child(cells.pop_back())
+		var cell = cells.pop_back()
+		remove_child(cell)
+		cell.queue_free()
 	
 	var index = len(cells)
 	

@@ -21,6 +21,7 @@ const block_impact_scene = preload("res://scenes/particles/attack_block_impact.t
 @onready var _character_sprite: Sprite2D = get_node("CharacterSprite")
 @onready var _health_bar: TextureProgressBar = get_node("HealthBar")
 
+@onready var audio: CharacterAudio = get_node("Audio")
 
 var block_cooldown = CountDownTicker.new()
 var knockback: Vector2 = Vector2.ZERO
@@ -31,6 +32,10 @@ var input_y = 0.0
 var input_run = false
 var input_attack = false
 var input_block = false
+
+func pickup(stack: ItemStack):
+	audio.coin.play()
+	inventory.add_item(stack.item_id, stack.quantity)
 
 func animate(animation_name: String):
 	_animation_player.play(animation_name)

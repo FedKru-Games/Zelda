@@ -69,6 +69,7 @@ func _on_object_lost(object: UsableArea):
 	if idx != -1:
 		sections_layout.remove_child(sections[idx])
 		sections[idx].action_used.disconnect(section_use_callables[idx])
+		sections[idx].queue_free()
 		sections.remove_at(idx)
 		section_use_callables.remove_at(idx)
 		

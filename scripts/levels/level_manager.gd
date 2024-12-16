@@ -27,12 +27,12 @@ func _on_door_entered(user: Node2D, door: Door):
 		_switch_level(Door.invertPosition(door.door_position))
 
 func _switch_level(door_position: Door.Position):
-	for child in get_children():
-		remove_child(child)
-	
 	for door in door_connections.keys():
 		var connection = door_connections[door]
 		(door as Door).door_entered.disconnect(connection)
+		
+	for child in get_children():
+		remove_child(child)
 	
 	var level = level_generator.generate_level('grass')
 	
@@ -53,4 +53,4 @@ func _switch_level(door_position: Door.Position):
 		door_connections[door] = callable
 		(door as Door).door_entered.connect(callable)
 		
-	level_loaded.emit()	
+	level_loaded.emit()

@@ -3,6 +3,7 @@ extends CharacterState
 func on_enter():
 	character.animate("die")
 	character.holster.sprite.visible = false
+	EventBus.character_died.emit(character)
 
 func on_health_changed(health: int, is_dead: bool):
 	pass

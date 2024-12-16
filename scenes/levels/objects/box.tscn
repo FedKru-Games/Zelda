@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cr40qhxed4d5d"]
+[gd_scene load_steps=6 format=3 uid="uid://cr40qhxed4d5d"]
 
 [ext_resource type="Script" path="res://scripts/objects/box.gd" id="1_x225e"]
 [ext_resource type="Script" path="res://scripts/combat/hurtbox.gd" id="2_x50nd"]
 [ext_resource type="Texture2D" uid="uid://i0573jcwh2ji" path="res://resources/FedKru/sprites/objects/Box.png" id="3_jh08r"]
+[ext_resource type="AudioStream" uid="uid://coqh7dq8oesvv" path="res://resources/Ninjas/Sounds/Game/Hit.wav" id="4_uyp4k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vnklv"]
 size = Vector2(12, 12)
@@ -26,3 +27,6 @@ texture = ExtResource("3_jh08r")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_vnklv")
+
+[node name="HitPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_uyp4k")

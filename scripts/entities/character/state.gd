@@ -29,6 +29,11 @@ func use_healing_item():
 		
 func on_damage_taken(damage: int):
 	character.health.take_damage(damage)
+	if not character.health.is_dead:	
+		character.audio.hurt.play()
+	else:
+		character.audio.dead.play()
+		
 	var impact = character.blood_impact_scene.instantiate()
 	character.add_child(impact)
 	impact.start_emitting()

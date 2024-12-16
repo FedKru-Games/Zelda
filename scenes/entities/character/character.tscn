@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://cux8udym3no7b"]
+[gd_scene load_steps=57 format=3 uid="uid://cux8udym3no7b"]
 
 [ext_resource type="Script" path="res://scripts/entities/character/character.gd" id="1_d8ed4"]
 [ext_resource type="Resource" uid="uid://ba7f0cicf7b2v" path="res://resources/characters/knight.tres" id="2_npg4v"]
@@ -21,6 +21,11 @@
 [ext_resource type="Script" path="res://scripts/ui/health_displayer.gd" id="15_af560"]
 [ext_resource type="Script" path="res://scripts/combat/character_finder.gd" id="17_5tdxq"]
 [ext_resource type="Script" path="res://scripts/objects/object_finder.gd" id="18_4nbd5"]
+[ext_resource type="AudioStream" uid="uid://c5u0me06gba0" path="res://resources/Ninjas/Sounds/Game/Coin.wav" id="22_1h1k3"]
+[ext_resource type="Script" path="res://scripts/entities/character/audio.gd" id="22_2mi54"]
+[ext_resource type="AudioStream" uid="uid://coqh7dq8oesvv" path="res://resources/Ninjas/Sounds/Game/Hit.wav" id="24_ntmit"]
+[ext_resource type="AudioStream" uid="uid://cttexwdexgr5y" path="res://resources/Ninjas/Sounds/Game/Kill.wav" id="25_273jl"]
+[ext_resource type="AudioStream" uid="uid://n42r6d6wuwvc" path="res://resources/Ninjas/Sounds/Game/PowerUp1.wav" id="26_pmx5x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cs41l"]
 size = Vector2(14, 10)
@@ -1008,3 +1013,18 @@ script = ExtResource("18_4nbd5")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ObjectFinder"]
 shape = SubResource("CircleShape2D_wa0ik")
 debug_color = Color(0.623529, 0.533333, 0, 0)
+
+[node name="Audio" type="Node2D" parent="."]
+script = ExtResource("22_2mi54")
+
+[node name="Coin" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("22_1h1k3")
+
+[node name="Hurt" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("24_ntmit")
+
+[node name="Dead" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("25_273jl")
+
+[node name="Block" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("26_pmx5x")
